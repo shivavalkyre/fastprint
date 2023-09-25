@@ -1,0 +1,74 @@
+<table id="dg3" class="easyui-datagrid"  style="width:100%;height:100%"
+            data-options="singleSelect:true,fitColumns:true,nowrap:false,collapsible:true,url:'produk/read/',method:'get'"
+            toolbar="#toolbar3" pagination="true" style="background: transparent;"
+            >
+        <thead>
+            <tr>
+                <th data-options="field:'id_produk',width:50">ID Produk</th>
+                <th data-options="field:'nama_produk',width:300">Nama Produk</th>
+                <th data-options="field:'harga',width:80,align:'center'">Harga</th>
+                <th data-options="field:'kategori_id',width:200" hidden>Kategori ID</th>
+                <th data-options="field:'kategori__nama_kategori',width:100,align:'center'">Nama Kategori</th>
+                <th data-options="field:'status_id',width:200" hidden>Status ID</th>
+                <th data-options="field:'status__nama_status',width:80,align:'center'">Nama Status</th>
+            </tr>
+        </thead>
+    </table>
+
+    <div id="toolbar3">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newProduk()">New</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editProduk()">Edit</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyProduk()">Remove</a>
+    </div>
+
+    <div id="dlg3" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons3'">
+        <form id="fm3" method="post" novalidate style="margin:0;padding:20px 50px">
+            {% csrf_token %}
+            <div style="margin-bottom:10px">
+                <input id="nama_produk" name="nama_produk" class="easyui-textbox" labelPosition="top" required="true" label="Nama Produk:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input id="harga" name="harga" class="easyui-numberbox" labelPosition="top" required="true" label="Harga:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                        <select id="kategori_id" class="easyui-combogrid" name="kategori_id" style="width:100%" data-options="
+                                panelWidth: 500,
+                                idField: 'id_kategori',
+                                textField: 'nama_kategori',
+                                url: 'kategori/read/all/',
+                                method: 'get',
+                                columns: [[
+                                    {field:'id_kategori',title:'ID Kategori',width:80,hidden:true},
+                                    {field:'nama_kategori',title:'Kategori',width:120},
+                                ]],
+                                fitColumns: true,
+                                label: 'Nama Kategori:',
+                                labelPosition: 'top',
+                                required: true
+                            ">
+                     </select>
+            </div>
+            <div style="margin-bottom:10px">
+                <select id="status_id" class="easyui-combogrid" name="status_id" style="width:100%" data-options="
+                        panelWidth: 500,
+                        idField: 'id_status',
+                        textField: 'nama_status',
+                        url: 'status/read/all/',
+                        method: 'get',
+                        columns: [[
+                            {field:'id_status',title:'ID Status',width:80,hidden:true},
+                            {field:'nama_status',title:'Status',width:120},
+                        ]],
+                        fitColumns: true,
+                        label: 'Nama Status:',
+                        labelPosition: 'top',
+                        required: true
+                    ">
+             </select>
+    </div>
+        </form>
+    </div>
+    <div id="dlg-buttons3">
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveProduk()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg3').dialog('close')" style="width:90px">Cancel</a>
+    </div>

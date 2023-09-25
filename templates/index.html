@@ -1,0 +1,54 @@
+
+{% load static %}
+<html>
+<head>
+    <title>Django</title>
+
+
+
+        <link rel="icon" href="{% static 'images/n_logo.png' %}" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href=" {% static 'easyui/themes/metro-blue/easyui.css' %}">
+        <link rel="stylesheet" type="text/css" href=" {% static  'easyui/themes/icon.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href=" {% static 'css/general.css' %}">
+        <script type="text/javascript" src="{% static   'easyui/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static  'easyui/jquery.easyui.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/script_main.js'%}"></script>
+        <style>
+             .bg {
+    /* The image used */
+    background-image: url("{% static 'images/main1.png' %}");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+        </style>
+</head>
+<body>
+    <!-- <h1>Hallo Ini  Index</h1>
+    <button onclick="myFunction()">Click me!</button> -->
+    <!-- <img src="{% static 'my_app/main1.png' %}" alt="My image"> -->
+    <div class="bg"></div>
+    {% load widget_tweaks %}
+    <div id="form_login" class="easyui-panel" title="" style="width:300px;height:225px;padding:10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);border-radius:5px;background:white;">
+        <form id="fmLogin" class="easyui-form" method="post" data-options="novalidate:true">
+            {% csrf_token %}
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" label="Username:" labelPosition="top" name="username" data-options="tipPosition:'bottom',prompt:'Username',required:true" style="width:100%;">
+            </div>
+            <div style="margin-bottom:15px">
+                <input class="easyui-passwordbox" label="Password:" labelPosition="top" name="password" prompt="Password" data-options="tipPosition:'bottom',required:true" iconWidth="28" style="width:100%;">
+            </div>
+            <div>
+            <a href="#" class="easyui-linkbutton"  style="width:100%;height:40px;" onclick="loginApp()">Login</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

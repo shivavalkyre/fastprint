@@ -1,0 +1,31 @@
+<table id="dg1" class="easyui-datagrid"  style="width:100%;height:100%"
+            data-options="singleSelect:true,collapsible:true,url:'kategori/read/',method:'get'"
+            toolbar="#toolbar1" pagination="true" style="background: transparent;"
+            >
+        <thead>
+            <tr>
+                <th data-options="field:'id_kategori',width:80">ID Kategori</th>
+                <th data-options="field:'nama_kategori',width:200">Nama Kategori</th>
+                
+            </tr>
+        </thead>
+    </table>
+
+    <div id="toolbar1">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newKategori()">New</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editKategori()">Edit</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyKategori()">Remove</a>
+    </div>
+
+    <div id="dlg1" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons1'">
+        <form id="fm1" method="post" novalidate style="margin:0;padding:20px 50px">
+            {% csrf_token %}
+            <div style="margin-bottom:10px">
+                <input id="nama_kategori" name="nama_kategori" class="easyui-textbox" labelPosition="top" required="true" label="Nama Kategori:" style="width:100%">
+            </div>
+        </form>
+    </div>
+    <div id="dlg-buttons1">
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveKategori()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg1').dialog('close')" style="width:90px">Cancel</a>
+    </div>

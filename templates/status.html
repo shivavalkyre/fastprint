@@ -1,0 +1,31 @@
+<table id="dg2" class="easyui-datagrid"  style="width:100%;height:100%"
+            data-options="singleSelect:true,collapsible:true,url:'status/read/',method:'get'"
+            toolbar="#toolbar2" pagination="true" style="background: transparent;"
+            >
+        <thead>
+            <tr>
+                <th data-options="field:'id_status',width:80">ID Status</th>
+                <th data-options="field:'nama_status',width:200">Nama Status</th>
+                
+            </tr>
+        </thead>
+    </table>
+
+    <div id="toolbar2">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newStatus()">New</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editStatus()">Edit</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyStatus()">Remove</a>
+    </div>
+
+    <div id="dlg2" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons2'">
+        <form id="fm2" method="post" novalidate style="margin:0;padding:20px 50px">
+            {% csrf_token %}
+            <div style="margin-bottom:10px">
+                <input id="nama_status" name="nama_status" class="easyui-textbox" labelPosition="top" required="true" label="Nama Status:" style="width:100%">
+            </div>
+        </form>
+    </div>
+    <div id="dlg-buttons2">
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveStatus()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg2').dialog('close')" style="width:90px">Cancel</a>
+    </div>
