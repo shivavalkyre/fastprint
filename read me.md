@@ -19,7 +19,7 @@
 	if not same please install
 	
 3. Migrate /Import database (the simple way) (if import use username:admin password:p@55w0rd)
-2. Create SuperUser
+2. Create SuperUser if you choose migrate
 3. run application 
 
 How to use application
