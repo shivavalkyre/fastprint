@@ -17,7 +17,7 @@ function loginApp() {
 
 
 			if(success === false){
-				$.messager.alert('Fastprint',data,'error');
+				$.messager.alert('Novate',data,'error');
 			}else{
 				window.location.href = "home";
 				// console.log(result)
