@@ -8,7 +8,7 @@ asgiref 3.7.2 certifi 2023.7.22 charset-normalizer 3.2.0 Django 4.2.5 django-wid
 
 if not same please install
 
-Migrate /Import database (the simple way) (if import use username:admin password:p@55w0rd)
+Migrate /Import database (the simple way) (if import use username:admin password:P@55w0rd)
 
 Create SuperUser if you choose migrate
 
